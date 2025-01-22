@@ -5,21 +5,30 @@ import de.lenidh.android.counter.ui.theme.CounterUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.count
 
 class CounterViewModel : ViewModel() {
-    private var count = 0
-    private val _uiState = MutableStateFlow(CounterUiState(count))
+    private var _count = 0
+    private var _step = 1
+    private val _uiState = MutableStateFlow(CounterUiState(count, step))
 
     val uiState: StateFlow<CounterUiState> = _uiState.asStateFlow()
 
-    fun increment() {
-        count++
-        updateUiState()
-    }
+    var count
+        set(value) {
+            _count = value
+            updateUiState()
+        }
+        get() = _count
 
-    fun decrement() {
-        count--
+    var step
+        set(value) {
+            _step = value
+            updateUiState()
+        }
+        get() = _step
+
+    fun addStep() {
+        count += step
         updateUiState()
     }
 
@@ -29,6 +38,6 @@ class CounterViewModel : ViewModel() {
     }
 
     private fun updateUiState() {
-        _uiState.value = CounterUiState(count = count)
+        _uiState.value = CounterUiState(count, step)
     }
 }
