@@ -7,12 +7,12 @@ plugins {
 
 extensions.configure<ApplicationExtension> {
     namespace = "de.lenidh.android.counter"
-    compileSdk = 35
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "de.lenidh.android.counter"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0"
 

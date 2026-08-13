@@ -21,10 +21,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.KeyboardArrowDown
-import androidx.compose.material.icons.filled.KeyboardArrowUp
-import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -38,6 +34,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -210,14 +207,14 @@ fun CounterMenu(step: Int, onDecrement: () -> Unit = {}, onReset: () -> Unit = {
             Column(modifier = Modifier.fillMaxHeight(), verticalArrangement = Arrangement.Center) {
                 Button(onClick = { onDecrement() }) {
                     if (step > 0) {
-                        Icon(Icons.Default.KeyboardArrowUp, contentDescription = "Increment")
+                        Icon(painterResource(R.drawable.exposure_plus_1), contentDescription = "Increment")
                     } else {
-                        Icon(Icons.Default.KeyboardArrowDown, contentDescription = "Decrement")
+                        Icon(painterResource(R.drawable.exposure_neg_1), contentDescription = "Decrement")
                     }
                 }
                 Spacer(modifier = Modifier.height(16.dp))
                 Button(onClick = { onReset() }) {
-                    Icon(Icons.Rounded.Refresh, contentDescription = "Reset")
+                    Icon(painterResource(R.drawable.refresh), contentDescription = "Reset")
                 }
             }
         }
@@ -226,14 +223,14 @@ fun CounterMenu(step: Int, onDecrement: () -> Unit = {}, onReset: () -> Unit = {
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
                 Button(onClick = { onDecrement() }) {
                     if (step > 0) {
-                        Icon(Icons.Default.KeyboardArrowUp, contentDescription = "Increment")
+                        Icon(painterResource(R.drawable.exposure_plus_1), contentDescription = "Increment")
                     } else {
-                        Icon(Icons.Default.KeyboardArrowDown, contentDescription = "Decrement")
+                        Icon(painterResource(R.drawable.exposure_neg_1), contentDescription = "Decrement")
                     }
                 }
                 Spacer(modifier = Modifier.width(16.dp))
                 Button(onClick = { onReset() }) {
-                    Icon(Icons.Rounded.Refresh, contentDescription = "Reset")
+                    Icon(painterResource(R.drawable.refresh), contentDescription = "Reset")
                 }
             }
         }
